@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang = "pt">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Vendedor | Marketplace</title>
+        <link rel="stylesheet" href="/become_vendor/vendor.css"/>
+        <link rel="stylesheet" href="/side_bar/side_bar_style.css"/>
+        <link rel="icon" type="image/png" href="/logo_imgs/vgp_logo.png"/>
+    </head>
+
+    <%- include ("nav_bar") -%>
+
+    <body>
+        <div class="wrapper">
+            <div class="sidebar">
+                <h2>Ações</h2>
+                <ul>
+                    <li><a href="/vendedor/informacoes"><i class="fas fa-home"></i>Informações</a></li>
+                    <li><a href="/vendedor/meus-produtos"><i class="fas fa-home"></i>Meus Produtos</a></li>
+                    <li><a href="/vendedor/adicionar-produto"><i class="fas fa-user"></i>Adicionar Produto</a></li>
+                    <li><a href="/vendedor/vendas"><i class="fas fa-project-diagram"></i>Vendas</a></li>
+                    <li><a href="#"><i class="fas fa-map-pin"></i>Avaliações</a></li>
+                    <li><a href="/perfil/informacoes-perfil"><i class="fas fa-map-pin"></i>Perfil</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class ="cards-align">
+
+            <% informacoes.forEach(element => { %>
+            <div class="card">
+                <div class="cardTitle">
+                    Vendas
+                </div>
+                <div class="cardContent">
+                    <p><%=element.vendas%></p>
+                </div>
+                <div class="cardFooter">
+                    <button>Ver Tudo</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="cardTitle">
+                    Avaliações
+                </div>
+                <div class="cardContent">
+                    <p>0</p>
+                </div>
+                <div class="cardFooter">
+                    <button>Ver Tudo</button>
+                </div>
+            </div>
+
+            <div class="card-revenue">
+                <div class="cardTitle">
+                    Receita
+                </div>
+                <div class="cardContent">
+                    <p><%=element.saldo%> R$</p>
+                </div>
+                <div class="cardFooter">
+                    <button>Sacar</button>
+                </div>
+            </div>
+            <%});%>
+        </div>
+
+        <a href="/vendedor/adicionar-produto"><button class="button-add-product">Adicionar Produto +</button></a>
+        <div class="title-orders">
+            <h3>Novas Vendas :</h3>
+        </div>
+
+        <div class="card-sales">
+            <div class="description">
+                <h1></h1>
+                <span class="location">Quantidae:  | Preço Total: U$</span>
+                <p>Status: </p>
+                <button>Detalhes</button>
+            </div>
+        </div>
+    </body>
+</html>

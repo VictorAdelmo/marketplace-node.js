@@ -1,0 +1,163 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Josefin Sans', sans-serif;
+
+}
+
+body {
+    background-color: #f7f7f7;
+    font-family: 'Josefin Sans', sans-serif;
+
+}
+
+.select-roder ul{
+    margin-left: 250px;
+    margin-top: 140px;
+    width: 10%;
+    padding: 16px 16px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background-color: #39393b;
+}
+
+.order-product{
+    margin-left: 250px;
+    margin-top: 30px;
+}
+
+.order-product button {
+    width: 10%;
+    padding: 16px 16px;
+    border: none;
+    margin: 5px;
+    border-radius: 4px;
+    color: rgb(26, 26, 26);
+    background-color: #7cd992;
+    cursor: pointer;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr repeat(12, minmax(auto, 60px)) 1fr;
+    grid-gap: 40px;
+    padding: 20px 0;
+    margin-left: 220px;
+}
+
+.text--medium {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #262828;
+}
+
+.cards {
+    grid-column: 2 / span 12;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(auto, 60px));
+    grid-gap: 40px;
+}
+
+.card {
+    grid-column-end: span 4;
+    display: flex;
+    border-radius: 5px;
+    flex-direction: column;
+    background-color: #d1d1d1d4;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.card__image-container {
+    width: 100%;
+    padding-top: 56.25%;
+    overflow: hidden;
+    position: relative;
+}
+
+.card__image-container img {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.edit-button{
+    padding: 21px 22px 8px 8px;
+    background-repeat: no-repeat;
+    background: url(/product_style/editar-arquivo.png) center center no-repeat transparent;
+    background-color: #d8d8d8;
+    margin-left: 10px;
+    border-radius: 3px;
+    background-color: gainsboro;
+    border-color: gainsboro;
+}
+
+.delete-button{
+    padding: 21px 22px 8px 8px;
+    background-repeat: no-repeat;
+    background: url(/product_style/delete.png) center center no-repeat transparent;
+    background-color: #d8d8d8;
+    margin-left: 10px;
+    border-radius: 3px;
+    background-color: #f31212;
+    border-color: #f31212;
+}
+
+
+.card__content {
+    padding: 20px;
+}
+
+.card__title {
+    margin-bottom: 20px;
+}
+
+.card__info {
+    display: flex;
+    align-self: end;
+    align-items: center;
+}
+
+.card__price {
+    margin-left: auto;
+    padding: 5px 20px;
+    background-color: #7cd992;
+    border-radius: 20px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .card {
+        grid-column-end: span 6;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    main {
+        grid-gap: 20px;
+    }
+    .card {
+        grid-column-end: span 12;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    main {
+        grid-template-columns: 10px repeat(6, 1fr) 10px;
+        grid-gap: 10px;
+    }
+    .cards {
+        grid-column: 2 / span 6;
+        grid-template-columns: repeat(6, 1fr);
+        grid-gap: 20px;
+    }
+    .card {
+        grid-column-end: span 6;
+    }
+
+}

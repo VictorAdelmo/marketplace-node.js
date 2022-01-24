@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="pt">
+    <head>
+        <title>Login | Marketplace</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--===============================================================================================-->	
+        <link rel="icon" type="image/png" href="/logo_imgs/vgp_logo.png"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="/login_form/vendor/bootstrap/css/bootstrap.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="/login_form/css/util.css">
+        <link rel="stylesheet" type="text/css" href="/login_form/css/main.css">
+        <!--===============================================================================================-->
+    </head>
+
+    <body>
+        <div class="limiter">
+            <div class="container-login100">
+
+                <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+                    <img class="img-login" src="/logo_imgs/vgp_transparente.png">
+
+
+                    <form class="login100-form validate-form flex-sb flex-w" action="/login" method="POST">
+
+
+                        <span class="txt1 p-b-11">
+                            Email
+                        </span>
+                        <div class="wrap-input100 validate-input m-b-36" data-validate = "O Login é Obrigatório">
+                            <input class="input100" type="text" name="email" max="80" >
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <span class="txt1 p-b-11">
+                            Senha
+                        </span>
+                        <div class="wrap-input100 validate-input m-b-12" data-validate = "A Senha é Obrigatória">
+                            <input class="input100" type="password" name="senha" max="30" >
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <!-- #region <img class="img-captcha" src="data:img/png;base64,"/> 
+                        <br>
+
+                        <div class="wrap-input100 validate-input m-b-12" data-validate = "A Senha é Obrigatória">
+                            <input class="input100" type="text" name="captcha" max="30" >
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <span class="txt1 p-b-11">
+                            Digite o Captcha Acima
+                        </span>
+-->
+                         
+                        <% if(locals.erro != null){%>
+                            <span class="txt1 p-b-11" style="color:red;">
+                                <%=erro%>
+                            </span>
+                        <%}%>
+                        <div class="container-login100-form-btn">
+                            <button class="login100-form-btn" type="submit">
+                                ENTRAR
+                            </button>
+                        </div>
+                  
+                    </form>
+                    <div>
+                        <br>
+                        <h6>Não Possui uma Conta ainda ? <a href="/registrar">Cadastrar</a></h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="dropDownSelect1"></div>
+    </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="/add_product/add_product.css"/>
+        <link rel="icon" type="image/png" href="/logo_imgs/vgp_logo.png"/>
+
+        <title>Editar Perfil | Marketplace</title>
+    </head>
+    <body>
+        <%- include ("nav_bar") -%>
+
+        <%- include ("side_bar_profile") -%>
+
+
+        <div class="container">
+            <div class="send">
+                <form action="/atualizar-perfil" method="POST" enctype="multipart/form-data">
+                    <label>Nome</label>
+                    <br>
+                    <input required="" class="send-name" max="25" name="nome" type="text" placeholder="">
+                    <br>
+                    <label>Descrição Perfil</label>
+                    <br>
+                    <input required="" class="send-name" max="25" name="descricao" type="text" placeholder="">
+                    <br>
+                    <label>Telefone</label>
+                    <br>
+                    <input required="" class="send-name" max="25" name="telefone" type="text" placeholder="">
+                    <br>
+                    <br>
+                    <div class="center">
+                        <div class="title">
+                            <h1>Imagem de Perfil<br>
+                                Dimensão Recomendada 512x512</h1>
+                        </div>
+
+                        <div class="dropzone">
+                            <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
+                            <input type="file" name="file" class="upload-input" max="1" accept="image/x-png,image/jpeg" />
+                        </div>
+                    </div>
+                    <button class="btn-send-form" type="submit">Salvar Perfil</button>
+                </form>   
+                <br><br><br>
+                <form method="POST" action="/atualizar-senha">
+                <b><label>- Mudar Senha -</label></b>
+                <br><br>
+                <label>Nova Senha:</label><br>
+                <input required="" class="send-name" max="25" name="senha" type="password" placeholder="">
+                <br>
+                <label>Repita a Senha:</label>
+                <br>
+                <input required="" class="send-name" max="25" name="confirmarSenha" type="password" placeholder="">
+                <br>                
+                <br>
+                <button class="btn-pass" type="submit">Mudar Senha</button>
+
+                <% if(locals.erroSenha != null){%>
+                    <br>
+                    <br>
+                    <label style="color: #ca1d1df3;"><b><%=erroSenha%></b></label>
+                <%}%>
+
+                <%if(locals.sucessoSenha != null){%>
+                    <br>
+                    <br>
+                    <label style="color: #19d141f3;"><b><%=sucessoSenha%></b></label>
+                <%}%>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

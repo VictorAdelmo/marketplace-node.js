@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/profile/new_profile.css"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="icon" type="image/png" href="/logo_imgs/vgp_logo.png"/>
+        <title>Page</title>
+    </head>
+    <body>
+        <% if(locals.dados != null) { %>
+        <% dados.forEach(element => { %> 
+        <!-- Sidenav -->
+        <div class="sidenav">
+            <div class="profile">
+                <img src="/img_products/<%=element.img%>" alt="error" width="100" height="100">
+                <div class="name">
+                    <%=element.nome%>
+                </div>
+            </div>
+
+            <div class="sidenav-url">
+                <div class="url">
+                    <a href="/perfil/informacoes-perfil">Perfil</a>
+                    <hr align="center">
+                </div>
+                <div class="url">
+                    <a href="/perfil/editar-perfil">Editar Perfil</a>
+                    <hr align="center">
+                </div>
+                <div class="url">
+                    <a href="/perfil/favoritos">Favoritos</a>
+                    <hr align="center">
+                </div>
+            </div>
+        </div>
+        <%});%>
+        <%}%>
+    </body>
+</html>

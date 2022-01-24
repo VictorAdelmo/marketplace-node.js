@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title> Loja | Marketplace</title>
+
+        <link rel="icon" type="image/png" href="/logo_imgs/vgp_logo.png"/>
+        <link rel="stylesheet" href="/home_video/video_css.css" />
+        <link rel="stylesheet" href="/side_bar/side_bar_style.css"/>
+
+    </head>
+
+    <%- include ("nav_bar") -%>
+
+    <body>
+        <div class="wrapper">
+            <div class="sidebar">
+                <h3>Categorias</h3>
+                <ul>
+                    <li><a href="/produtos/roupas"><i class="fas fa-home"></i>Roupas</a></li>
+                    <li><a href="/produtos/tenis"><i class="fas fa-user"></i>Tenis</a></li>
+                    <li><a href="/produtos/acessorios"><i class="fas fa-address-card"></i>Acessórios</a></li>
+                    <li><a href="/produtos/bones"><i class="fas fa-project-diagram"></i>Bonés</a></li>
+                    <li><a href="/produtos/joias"><i class="fas fa-blog"></i>Jóias</a></li>
+                </ul>
+            </div>
+        </div> 
+
+        <!---
+        
+        
+        ----->
+
+        <div class="order-product">
+            <a href="/produtos/<%=categoria%>"><button>Padrão</button></a>
+            <a href="/produtos/<%=categoria%>/preco-alto"><button>Alto - Baixo</button></a>
+            <a href="/produtos/<%=categoria%>/preco-baixo"><button>Baixo - Alto</button></a>
+        </div>
+
+        <main>  
+            <section class="cards">
+
+                <!---
+            
+-->
+        <%if(locals.produtoLista != null) {%>
+            <% produtoLista.forEach(element => { %>                          
+                <div class="card">  
+                    <a href="/detalhes-produto/<%=element.id%>">
+                        <div class="card__image-container" >
+                            <img
+                                src="/img_products/<%=element.img%>" >
+                        </div>
+                        <div class="card__content">
+                            <p class="card__title text--medium" >
+                               <%=element.nome%>
+                            </p>
+                            <div class="card__info" >
+                                <p class="text--medium">Vendas: <c:out value="product.getVendas"/></p>
+                                <p class="card__price text--medium" ><%=element.preco%> R$</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+           <% });%>     
+           <%}%>   
+            </section>
+        </main>
+    </body>
+</html>

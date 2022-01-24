@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Notificações | Marketplace</title>
+    <link rel="icon" type="image/png" href="/logo_imgs/vgp_logo.png"/>
+    <link rel="stylesheet" href="/notifications/notification.css" />
+    <link rel="stylesheet" href="/side_bar/side_bar_style.css" />
+
+</head>
+
+<body>
+
+    <%- include ("nav_bar") -%>
+
+        <div class="wrapper">
+            <div class="sidebar">
+                <h3>Categorias</h3>
+                <ul>
+                    <li><a href="/produtos/roupas"><i class="fas fa-home"></i>Roupas</a></li>
+                    <li><a href="/produtos/tenis"><i class="fas fa-user"></i>Tenis</a></li>
+                    <li><a href="/produtos/acessorios"><i class="fas fa-address-card"></i>Acessórios</a></li>
+                    <li><a href="/produtos/bones"><i class="fas fa-project-diagram"></i>Bonés</a></li>
+                    <li><a href="/produtos/joias"><i class="fas fa-blog"></i>Jóias</a></li>
+                </ul>
+            </div>
+        </div>
+       
+
+            <div class="notifications">
+
+                <% if(locals.notificacao != null){ %>
+                    <% notificacao.forEach(element => { %>
+                <a href="/detalhes-produto/<%=element.produto_id%>" ><div class="wrapper-notication">
+
+                <div class="notifications__item">
+                    <div class="notifications__item__avatar">
+                        <img src="/img_products/<%=element.img%>" alt="erro" />
+                    </div>
+
+                    <div class="notifications__item__content">
+                        <span class="notifications__item__title">
+                            <%= element.titulo %>
+                        </span>
+                        <span class="notifications__item__message">
+                            <%= element.descricao %>
+                        </span>
+                    </div>
+
+                    <div>
+                        <form action="/deletar-notificacao/<%= element.id %>" method="POST">
+                        <button type="submit" style="color: transparent;"><div class="notifications__item__option delete js-option">
+                            <i class="fas fa-trash"></i>
+                        </div>
+                        </button>
+                    </form>
+                    </div>
+                </div></div></a>
+                <%});%>
+                <%}%>
+            </div>
+        </div>
+        
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang = "pt">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Favoritos | Marketplace</title>
+        <link rel="stylesheet" href="/home_video/video_css.css" />
+        <link rel="icon" type="image/png" href="/logo_imgs/vgp_logo.png"/>
+
+    </head>
+
+    <body>
+        
+        <%- include ("nav_bar") -%>
+        <%- include ("side_bar_profile") -%>
+
+       
+        <main>
+            <section class="cards">
+                <%if(locals.lista !=null) {%>
+                    <%lista.forEach(element=> {%>
+
+                        <div class="card">
+
+                            <a href="/detalhes-produto/<%=element.produto_id%>">
+                                <div class="card__image-container">
+                                    <img src="/img_products/<%=element.img%>" alt="erro">
+                                </div>
+
+                            </a>
+                            <div class="card__content">
+                                <p class="card__title text--medium">
+                                    <%=element.nome%>
+                                <form action="/deletar-favorito/<%=element.id%>/favoritos-pagina" method="POST">     
+                                <a><button type="submit" class="delete-button"></button></a>
+                                </form>
+                                </p>
+
+                                <div class="card__info">
+                                    <p class="card__price text--medium">
+                                         <%=element.preco%> R$
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    <%});%>
+                <%}%>
+            </section>
+        </main>
+    </body>
+</html>

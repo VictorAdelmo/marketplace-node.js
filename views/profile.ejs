@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang = "pt">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Perfil | Marketplace</title>
+        <link rel="stylesheet" href="/profile/new_profile.css"/>
+        <link rel="icon" type="image/png" href="/logo_imgs/vgp_logo.png"/>
+    </head>
+    
+    <body>
+        <%- include ("nav_bar") -%>
+        <%- include ("side_bar_profile") -%>
+  
+        <% dados.forEach(element => { %>                 
+        <div class="main">
+            <h2>INFORMAÇÕES: </h2>
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-pen fa-xs edit"></i><table>
+                        <tbody>
+                            <tr>
+                                <td>Nome</td>
+                                <td>:</td>
+                                <td><%=element.nome%></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>:</td>
+                            <td><%=element.email%></td>
+                        </tr>
+                        <tr>
+                            <td>Telefone</td>
+                            <td>:</td>
+                            <td><%=element.telefone%></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        <%});%>
+     </div>
+    </body>
+</html>

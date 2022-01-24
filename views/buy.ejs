@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <% if(locals.produtoLista !=null) { %> <% produtoLista.forEach(element=> { %>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/buy/buy.css" />
+    <link rel="stylesheet" href="/side_bar/side_bar_style.css" />
+    <link rel="stylesheet" href="/profile/profile_card.css" />
+
+    <link rel="icon" type="image/png" href="/logo_imgs/vgp_logo.png"/>
+    <script src="/buy/cep.js" type="module" defer></script>
+    <title><%=element.nome%> | Tiger Market</title>
+  </head>
+
+  <body>
+    <%- include ("nav_bar") -%>
+
+    <div class="wrapper">
+      <div class="sidebar">
+        <h3>Categorias</h3>
+        <ul>
+          <li>
+            <a href="/produtos/roupas"><i class="fas fa-home"></i>Roupas</a>
+          </li>
+          <li>
+            <a href="/produtos/tenis"><i class="fas fa-user"></i>Tenis</a>
+          </li>
+          <li>
+            <a href="/produtos/acessorios"
+              ><i class="fas fa-address-card"></i>Acessórios</a
+            >
+          </li>
+          <li>
+            <a href="/produtos/bones"
+              ><i class="fas fa-project-diagram"></i>Bonés</a
+            >
+          </li>
+          <li>
+            <a href="/produtos/joias"><i class="fas fa-blog"></i>Jóias</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <main>
+      <div class="content">
+        <img
+          class="img-style"
+          alt="erro"
+          src="/img_products/<%=element.img%>"
+        />
+        <div class="text">
+          <h3><%=element.nome%></h3>
+          <h3><%=element.preco%> R$</h3>
+
+          <h3>Vendedor:</h3>
+        </div>
+      </div>
+    </main>
+
+    <div class="warning">
+      <h5>
+        1- Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. with desktop publishing
+        software like Aldus PageMaker including versions of Lorem Ipsum.
+      </h5>
+
+      <h5>
+        2- Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. with desktop publishing
+        software like Aldus PageMaker including versions of Lorem Ipsum.
+      </h5>
+
+      <h5>
+        3- Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. with desktop publishing
+        software like Aldus PageMaker including versions of Lorem Ipsum.
+      </h5>
+    </div>
+
+    <form method="POST">
+      <div class="datas">
+        <div id="master_container">
+          <div id="section-2" class="sections">
+            <p>Detalhes</p>
+            <div class="properties">
+              <span>Nome:</span>
+              <%=element.nome%>
+            </div>
+            <div class="properties"><span>Vendedor:</span></div>
+            <% if(locals.preco !=null && locals.quantidade2 !=null){ %>
+            <div class="properties">
+              <span>Preço:</span>
+              <%=preco%> R$
+            </div>
+            <div class="properties">
+              <span>Quantidade:</span>
+              <%=quantidade2%>
+            </div>
+            <%}else{%>
+            <div class="properties" id="preco2">
+              <span>Preço:</span>
+              <%=element.preco%> R$
+            </div>
+            <div class="properties"><span>Quantidade: 1</span></div>
+            <%}%>
+            <button class = "addToCart"value="update"
+            formaction="/calcular-preco/<%=element.id%>">Atualizar Preço + Quantidade</button>
+          </div>
+        </div>
+        <% if(locals.errorMessage !=null){ %>
+        <label style="color: red"> <%=errorMessage%> </label>
+        <%}%>
+
+        <label>CEP:</label>
+        <input name="cep" id="cep" maxlength="8" class="datas-pin" type="number" />
+        
+        <label>Endereço:</label>
+        <input name="endereco" id="endereco" class="datas-notes" max="200" type="text" />
+
+        <label>Bairro:</label>
+        <input name="bairro" id="bairro" class="datas-notes" max="200" type="text" />
+
+        <label>Cidade:</label>
+        <input name="cidade" id="cidade" class="datas-pin" type="text" />
+     
+        <label>Numero:</label>
+        <input name="numero" class="datas-pin" type="number" />
+
+        <label>Quantidade:</label>
+        <input
+          name="quantidade"
+          id="quantidade"
+          class="datas-quantity"
+          required=""
+          type="number"
+          min="1"
+          max="<%=element.quantidade%>"
+        />
+
+        <label>Pagamento:</label>
+        <select name="pagamento" id="product-list">
+          <option value="cc">Cartao de Crédito</option>
+          <option value="boleto">Boleto</option>
+          <option value="pix">PIX</option>
+          <option value="paypal">Paypal</option>
+        </select>
+
+        <input type="hidden" name="vendedorId" value="<%=element.user_id%>" />
+        <input type="hidden" name="idProduto" value="<%=element.id%>" />
+        <input type="hidden" name="preco2" id="precoProduto" value="<%=element.preco%>"/>
+
+        <button
+          class="confirm"
+          type="submit"
+          value="buy"
+          formaction="/comprar-produto"
+        >
+          Confirmar Compra
+        </button>
+      </div>
+    </form>
+  </body>
+  <%});%> <%}%>
+</html>

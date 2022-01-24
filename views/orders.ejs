@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" type="image/png" href="/logo_imgs/vgp_logo.png"/>
+    <link rel="stylesheet" href="/orders/orders.css" />
+    <link rel="stylesheet" href="/side_bar/side_bar_style.css" />
+
+    <title>Compras | Marketplace</title>
+</head>
+
+<%- include ("nav_bar") -%>
+
+    <body>
+        <div class="wrapper">
+            <div class="sidebar">
+                <h2>Ações</h2>
+                <ul>
+                    <li><a href="/vendedor/informacoes"><i class="fas fa-home"></i>Informações</a></li>
+                    <li><a href="/vendedor/meus-produtos"><i class="fas fa-home"></i>Meus Produtos</a></li>
+                    <li><a href="/vendedor/adicionar-produto"><i class="fas fa-user"></i>Adicionar Produto</a></li>
+                    <li><a href="/vendedor/vendas"><i class="fas fa-project-diagram"></i>Vendas</a></li>
+                    <li><a href="#"><i class="fas fa-map-pin"></i>Avaliações</a></li>
+                    <li><a href="/perfil/informacoes-perfil"><i class="fas fa-map-pin"></i>Perfil</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <main>
+            <section>
+                <div class="cards">
+                    <%if(locals.listCompra !=null) {%>
+                        <%listCompra.forEach(element=> { %>
+
+                            <div class="card2">
+                                <div class="img2">
+                                    <img src="/img_products/<%=element.img%>" alt="erro">
+                                </div>
+                                <div class="infos2">
+                                    <div class="name2">
+                                        <h2>
+                                            <%=element.nome%>
+                                        </h2>
+                                        <h4>Status:
+                                            <%=element.status%>
+                                        </h4>
+                                    </div>
+                                    <p class="text2">
+                                        <%=element.endereco%>,<%=element.cidade%>, 
+                                         <%=element.cep%>                                       
+                                    </p>
+                                    <ul class="stats">
+                                    
+                                        <li>
+                                            <h3>
+                                                <%=element.quantidade%>
+                                            </h3>
+                                            <h4>Quantidade</h4>
+                                        </li>
+                                        <li>
+                                            <h3>
+                                                <%=element.preco_total%> R$
+                                            </h3>
+                                            <h4>Preço Total</h4>
+                                        </li>
+                                    </ul>
+                                    <div class="links2">
+                                        <button class="follow">Teste</button>
+                                        <a href="/detalhes-produto/<%=element.produto_id%>"><button class="view">Ver Produto</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <%});%>
+                        <%}%>
+                </div>
+            </section>
+        </main>
+    </body>
+
+</html>

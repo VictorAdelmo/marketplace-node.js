@@ -1,0 +1,26 @@
+body{
+    background-color: #000000;
+}
+
+img{
+    width: 250px;
+    height: 250px;
+    background-size: 100%;
+    border-radius: 3px;
+    margin-top: 100px; 
+}
+
+h3{
+    color: white;
+}
+
+button{
+    border-radius: 6px;
+    width: 12%;
+    color: white;
+    height: 30px;
+    background-color: #1363af;
+    border: 0px;
+    margin-top: 20px;
+    cursor: pointer;
+}

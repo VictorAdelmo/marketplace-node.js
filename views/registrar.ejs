@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/registrar/registrar.css" />
+    <link rel="icon" type="image/png" href="/logo_imgs/vgp_logo.png"/>
+
+    <title>Registrar</title>
+</head>
+<body>
+    <form action="/registrar" method="POST">
+        <div class="container">
+          <h1>Registrar</h1>
+          <p>Por favor Preencha todos os Campos.</p>
+      
+            <label for="email"><b>Nome</b></label>
+            <input type="text" name="nome" placeholder="Nome" required>
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Email" name="email" required>
+          
+          <label for="psw"><b>Senha</b></label>
+          <input type="password" placeholder="Senha" name="senha" required>
+      
+                  <label for="email"><b>Telefone</b></label>
+            <br>
+           <select name="ddd" required>
+            <option selected hidden value="">DDD</option>
+            <option value="98">+11</option>
+            <option value="99">+12</option>
+            <option value="90">+15</option>
+            <option value="55">+20</option>
+           </select>
+           <input type="phone" name="telefone" placeholder="812345678" required>
+
+          <p>Ao criar uma conta você concorda com os <a href="#" style="color:dodgerblue">Termos e Privacidade</a>.</p>
+      
+          <% if(locals.erro != null){ %>
+              <br>
+              <p style="color: red;"><%=erro%></p>
+            <%}%>
+          <div class="clearfix">
+      
+            <button type="submit" class="btn">Registrar</button>
+          </div>
+        </div>
+      </form>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" type="image/png" href="/logo_imgs/vgp_logo.png"/>
+    <link rel="stylesheet" href="/home_video/video_css.css" />
+    <link rel="stylesheet" href="/side_bar/side_bar_style.css" />
+
+    <title>Meus Produtos | Marketplace</title>
+</head>
+
+<body>
+    <%- include ("nav_bar") -%>
+
+
+        <div class="wrapper">
+            <div class="sidebar">
+                <h2>Ações</h2>
+                <ul>
+                    <li><a href="/vendedor/informacoes"><i class="fas fa-home"></i>Informações</a></li>
+                    <li><a href="/vendedor/meus-produtos"><i class="fas fa-home"></i>Meus Produtos</a></li>
+                    <li><a href="/vendedor/adicionar-produto"><i class="fas fa-user"></i>Adicionar Produto</a></li>
+                    <li><a href="/vendedor/vendas"><i class="fas fa-project-diagram"></i>Vendas</a></li>
+                    <li><a href="#"><i class="fas fa-map-pin"></i>Avaliações</a></li>
+                    <li><a href="/perfil/informacoes-perfil"><i class="fas fa-map-pin"></i>Perfil</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <main>
+            <section class="cards">
+                <%if(locals.lista !=null) {%>
+                    <%lista.forEach(element=> {%>
+
+                        <div class="card">
+
+                            <a href="/detalhes-produto/<%=element.id%>">
+                                <div class="card__image-container">
+                                    <img src="/img_products/<%=element.img%>" alt="erro">
+                                </div>
+
+                            </a>
+                            <div class="card__content">
+                                <p class="card__title text--medium">
+                                    <%=element.nome%>
+                                <form action="/deletar-produto/<%=element.id%>" method="POST">     
+                                <a><button type="submit" class="delete-button"></button></a>
+                                </form>
+                                <a href="/editar-produto/<%=element.id%>"><button class="edit-button"></button> </a>
+                                </p>
+
+                                <div class="card__info">
+                                    <p class="card__price text--medium">
+                                         <%=element.preco%> R$
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    <%});%>
+                <%}%>
+            </section>
+        </main>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+/node_modules
+.env
+/resources/styles/login_form/images
+/resources/styles/login_form/fonts
+/resources/styles/login_form/images
+/resources/styles/nao_usar

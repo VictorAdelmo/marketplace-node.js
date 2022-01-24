@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="/add_product/add_product.css"/>
+        <link rel="icon" type="image/png" href="/logo_imgs/vgp_logo.png"/>
+        <link rel="stylesheet" href="/side_bar/side_bar_style.css"/>
+
+        <title>Adicionar Produto | Marketplace</title>
+    </head>
+
+    <%- include ("nav_bar") -%>
+
+    <body>
+       <div class="wrapper">
+            <div class="sidebar">
+                <h2>Ações</h2>
+                <ul>
+                    <li><a href="/vendedor/informacoes"><i class="fas fa-home"></i>Informações</a></li>
+                    <li><a href="/vendedor/meus-produtos"><i class="fas fa-home"></i>Meus Produtos</a></li>
+                    <li><a href="/vendedor/adicionar"><i class="fas fa-user"></i>Adicionar Produto</a></li>
+                    <li><a href="/vendedor/vendas"><i class="fas fa-project-diagram"></i>Vendas</a></li>
+                    <li><a href="#"><i class="fas fa-map-pin"></i>Avaliações</a></li>
+                    <li><a href="/perfil/informacoes-perfil"><i class="fas fa-map-pin"></i>Perfil</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="send">
+                <form action="/inserir-produto" method="POST" enctype="multipart/form-data">
+                    <label>Nome<label style="color:#2fa796">*</label></label>
+                    <br>
+                    <input required="" class="send-name" max="25" name="nome" type="text" placeholder="">
+                    <br>
+                    <label>Descrição<label style="color:#2fa796">*</label></label>
+                    <br>
+                    <input required="" class="description" max="350" name="descricao" type="text" placeholder="" >
+                    <br>
+                    <label>Descrição Curta:</label>
+                    <br>
+                    <input class="send-name" name="descricao_curta" max="50" type="text" placeholder="" >
+                    <br>
+                    <label>Categoria<label style="color:#2fa796">*</label></label>
+                    <select class="categorie" name="categoria">
+                        <option>roupas</option>
+                        <option>joias</option>
+                        <option>bones</option>
+                        <option>acessorios</option>
+                        <option>tenis</option>
+                    </select>
+                    <br>
+                    <label>Preço(R$)<label style="color:#2fa796">*</label></label>
+                    <br>
+                    <input required="" class="price" name="preco" type="number" min="0" max="10000"  step="any" placeholder="Preço (R$)">
+                    <br>
+
+                    <label>Quantidade<label style="color:#2fa796">*</label></label>
+                    <br>                    
+                    <input class="price" name="quantidade" type="number" placeholder="" ><br><br>
+
+                    </div>
+                    <br>
+                    <br>
+                    <div class="center">
+                        <div class="title">
+                            <h1>Dimensão Recomendada 512x512</h1>
+                        </div>
+
+                        <div class="dropzone">
+                            <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
+                            <input type="file" name="file" class="upload-input" max="1" accept="image/x-png,image/jpeg" />
+                        </div>
+                    </div>
+                    <button class="btn-send-form" type="submit">Adicionar Produto</button>
+
+                </form>              
+            </div>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,257 @@
+body{
+    background-color: #e3e3e3;
+}
+
+main {
+    display: flex;
+    grid-template-columns: 1fr repeat(12, minmax(auto, 60px)) 1fr;
+    grid-gap: 40px;
+    padding: 20px 0;
+    margin-left: 200px;
+}
+
+.text--medium {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #ecf0f1;
+}
+
+.cards {
+    grid-column: 2 / span 12;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(auto, 60px));
+    grid-gap: 10px;
+}
+
+.card {
+    grid-column-end: span 4;
+    display: flex;
+    flex-direction: column;
+    background-color: #39393b;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.card__image-container {
+    width: 100%;
+    padding-top: 56.25%;
+    overflow: hidden;
+    position: relative;
+}
+
+.card__image-container img {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.edit-button{
+    padding: 21px 22px 8px 8px;
+    background-repeat: no-repeat;
+    background: url(/product_style/editar-arquivo.png) center center no-repeat transparent;
+    background-color: #d8d8d8;
+    margin-left: 10px;
+    border-radius: 3px;
+    background-color: gainsboro;
+    border-color: gainsboro;
+}
+
+.delete-button{
+    padding: 21px 22px 8px 8px;
+    background-repeat: no-repeat;
+    background: url(/product_style/delete.png) center center no-repeat transparent;
+    background-color: #d8d8d8;
+    margin-left: 10px;
+    border-radius: 3px;
+    background-color: #f31212;
+    border-color: #f31212;
+}
+
+
+.card__content {
+    padding: 20px;
+}
+
+.card__title {
+    margin-bottom: 20px;
+}
+
+.card__info {
+    display: flex;
+    align-self: end;
+    align-items: center;
+}
+
+.card__price {
+    margin-left: auto;
+    padding: 5px 20px;
+    background-color: #2aa236;
+    border-radius: 20px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .card {
+        grid-column-end: span 6;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    main {
+        grid-gap: 20px;
+    }
+    .card {
+        grid-column-end: span 12;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    main {
+        grid-template-columns: 10px repeat(6, 1fr) 10px;
+        grid-gap: 10px;
+    }
+    .cards {
+        grid-column: 2 / span 6;
+        grid-template-columns: repeat(6, 1fr);
+        grid-gap: 20px;
+    }
+    .card {
+        grid-column-end: span 6;
+    }
+
+}
+
+
+.img2 {
+    max-width: 200px;
+    display: block;
+}
+.ul2 {
+    list-style: none;
+}
+
+.card2 {
+    grid-template-columns: repeat(12, minmax(auto, 60px));
+    width: 450px;
+    padding: 2.5rem 2rem;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, .5);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .15);
+    margin: 1rem;
+    position: relative;
+    transform-style: preserve-3d;
+    overflow: hidden;
+}
+
+/* Utilities */
+.card2::after,
+.card2 img {
+    border-radius: 30px;
+}
+
+.card2,
+.stats {
+    display: flex;
+    list-style: none;
+
+}
+
+.card2::before,
+.card2::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+}
+.card2::before {
+    width: 300px;
+    height: 300px;
+    border: 1px solid #FFF;
+    border-radius: 10px;
+    top: -.7rem;
+    left: -.7rem;
+}
+.card2::after {
+    height: 15rem;
+    width: 15rem;
+    background-color: #4172f5aa;
+    top: -8rem;
+    right: -8rem;
+    box-shadow: 2rem 6rem 0 -3rem #FFF
+}
+
+.card2 img {
+    width: 8rem;
+    min-width: 80px;
+    box-shadow: 0 0 0 5px #FFF;
+}
+
+.infos2 {
+    margin-left: 1.5rem;
+}
+
+.name2 {
+    margin-bottom: 1rem;
+}
+.name2 h2 {
+    font-size: 1.3rem;
+}
+.name2 h4 {
+    font-size: .8rem;
+    color: #333
+}
+
+.text2 {
+    font-size: .9rem;
+    margin-bottom: 1rem;
+}
+
+.stats {
+    margin-bottom: 1rem;
+}
+.stats li {
+    min-width: 5rem;
+    color: #222222;
+}
+.stats li h3 {
+    font-size: .99rem;
+}
+.stats li h4 {
+    font-size: .75rem;
+}
+
+.links2 button {
+    font-family: 'Poppins', sans-serif;
+    min-width: 100px;
+    padding: .5rem;
+    border: 1px solid #222;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .25s linear;
+}
+.links2 .follow,
+.links2 .view:hover {
+    background-color: #222;
+    color: #FFF;
+}
+.links2 .view,
+.links2 .follow:hover{
+    background-color: transparent;
+    color: #222;
+}
+
+@media screen and (max-width: 500px) {
+    .card2 {
+        display: block;
+    }
+    .infos2 {
+        margin-left: 0;
+        margin-top: 1.5rem;
+    }
+    .links2 button {
+        min-width: 100px;
+    }
+}
+

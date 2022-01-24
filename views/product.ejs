@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt">
+<% if(locals.produtoLista !=null){%>
+    <% produtoLista.forEach(elemento=> { %>
+
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <title>
+                <%=elemento.nome%> | Marketplace
+            </title>
+            <link rel="stylesheet" href="/product_style/product_css.css" />
+            <link rel="icon" type="image/png" href="/logo_imgs/vgp_logo.png"/>
+
+        </head>
+
+        <body>
+
+            <%- include ("nav_bar") -%>
+
+                <div class="wrapper">
+                    <div class="sidebar">
+                        <h3>Categorias</h3>
+                        <ul>
+                            <li><a href="/produtos/roupas"><i class="fas fa-home"></i>Roupas</a></li>
+                            <li><a href="/produtos/tenis"><i class="fas fa-user"></i>Tenis</a></li>
+                            <li><a href="/produtos/acessorios"><i class="fas fa-address-card"></i>Acessórios</a></li>
+                            <li><a href="/produtos/bones"><i class="fas fa-project-diagram"></i>Bonés</a></li>
+                            <li><a href="/produtos/joias"><i class="fas fa-blog"></i>Jóias</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <main>
+
+
+                    <div class="content">
+                        <img class="img-style" alt="erro" src="/img_products/<%=elemento.img%>">
+                        <div class="text">
+                            <h3>
+                                <%=elemento.nome%>
+                            </h3>
+                            <p>
+                                <%=elemento.descricao_curta%>
+                            </p>
+
+                            <table class="content-table">
+                                <thead>
+                                    <tr>
+                                        <th>Categoria</th>
+                                        <th>Disponivel:</th>
+                                        <th>Vendas:</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <%=elemento.categoria%>
+                                        </td>
+                                        <td>
+                                            <%=elemento.quantidade%>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h4>
+                                <%=elemento.preco%> R$
+                            </h4>
+                            <div class="buy">
+                                <a href="/comprar-produto/<%=elemento.id%>"><button type="submit" class="buy-botao"></button></a>
+                                <form action="<%=url%>" method="POST">
+                                <button type="submit"><img class="favoritos" src="<%=favorito%>" alt="erro"> </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <h4>Descrição:</h4>
+                        <p>
+                            <%=elemento.descricao%>
+                        </p>
+                    </div>
+
+                   
+                </main>
+        </body>
+        <%});%>
+            <%}%>
+
+</html>
